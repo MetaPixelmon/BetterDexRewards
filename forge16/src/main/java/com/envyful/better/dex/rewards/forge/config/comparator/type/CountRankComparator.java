@@ -24,7 +24,9 @@ public class CountRankComparator implements RankComparator {
 
     @Override
     public boolean test(ForgeEnvyPlayer player) {
-        return StorageProxy.getParty(player.getParent()).playerPokedex.countCaught() >= this.count;
+        if (player != null) {
+            return StorageProxy.getParty(player.getParent()).playerPokedex.countCaught() >= this.count;
+        } else return false;
     }
 
     @Override
